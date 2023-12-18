@@ -1,6 +1,6 @@
 def numeros(num):
     for i in range(num):
-        print(i)
+        print(i + 1)
 
 
 
