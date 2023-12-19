@@ -16,6 +16,7 @@ def modAlunoNome():
     print('\n')
 
 
+
 def modNota():
     modnota = int(input('\ndigite o numero do aluno que quer editar a nota: '))
     notamod = int(input('digite a nova nota do aluno: '))
