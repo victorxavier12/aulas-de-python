@@ -1,4 +1,2 @@
-arquvleitura = open('C:\Users\victo\Documents\GitHub\aulas-de-python', 'r')
-
-
-with 
+with open('senha.txt' , 'w') as arquivo:
+    arquivo.write("123456")
