@@ -1,10 +1,11 @@
 import FuncoesContactos as fc # as fc cria uma abreviação das funcoes de contatos
 
+fc.criarficheiro()
 print('\n#### BEM VINDO ####')
 utilizador = input('\ndigite seu nome: ')
 print(f'\nseção iniciada por : {utilizador}')
 
-fc.criarficheiro()
+
 
 while True:
     

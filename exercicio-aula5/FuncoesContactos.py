@@ -2,16 +2,18 @@ import os
 
 def criarficheiro():
     if os.path.exists('exercicio-aula5/contatos.txt'):
-        print ('\nficheiro contatos existe')
+        # print ('\nficheiro contatos existe')
+        next
     else:
-        with open('exercicio-aula5/contatos.txt', 'a' , encoding='utf-8') as contatos:
-            print('fichiro contatos criado')
+        with open('exercicio-aula5/contatos.txt', 'w' , encoding='utf-8') as contatos:
+            # print('fichiro contatos criado')
+            next
 
 def addcontatos():
     with open('exercicio-aula5/contatos.txt', 'a', encoding='utf-8') as contatos:
         nome = input('dige o nome do contato: ')
         telemovel = int(input('digite o contacto telefonico: '))
-        contatos.write(f'{nome} - {telemovel}')
+        contatos.write(f'{nome} - {telemovel}\n')
 
 
 def listarcontatos():
