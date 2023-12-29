@@ -2,12 +2,27 @@ import funcoesfc as fc
 
 fc.criarficheiro()
 #fc.addusuario()
+def buscar_usuario(login,senha):
+    usuarios = []
+    try:
+        with open('avaliacao/credenciais.txt', 'r+' , encoding='utf-8') as credenciais:
+            for linha in credenciais:
+                linha = linha.strip(',')
+                usuarios.append(linha.split())
+            for usuario in usuarios:
+                nome = usuario[0]
+                password = usuario[1]
+                if login == nome and senha == password:
+                    return True
+    except FileNotFoundError:
+        return False
 
+login = input('digite nome de usuario: ')
+senha = input('digite senha: ')
 
-vfusu = input('digite nome de usuario: ')
-vfsn = input('digite senha: ')
+user = buscar_usuario(login,senha)
 
-if vfusu and vfsn in fc.lista:
+if user == True:
     print('login com sucesso')
     while True:
         print('opções:')
@@ -22,6 +37,7 @@ if vfusu and vfsn in fc.lista:
             print('opção invalida')
 else:
     print('login errado')
+        
 
 
     
