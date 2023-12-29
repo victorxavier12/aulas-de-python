@@ -18,7 +18,7 @@ def addcontatos():
 
 def listarcontatos():
     with open('exercicio-aula5/contatos.txt', 'r', encoding='utf-8') as contatos:
-        lista = contatos.read()
+        lista = contatos.readlines()
         if not lista:
             print('lista de contato vazia')
         else:
