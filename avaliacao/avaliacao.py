@@ -1,7 +1,6 @@
 import funcoesfc as fc
 
 fc.criarficheiro()
-#fc.addusuario()
 def buscar_usuario(login,senha):
     usuarios = []
     try:
@@ -13,31 +12,34 @@ def buscar_usuario(login,senha):
                 nome = usuario[0]
                 password = usuario[1]
                 if login == nome and senha == password:
-                    return True
+                    return True  
     except FileNotFoundError:
         return False
+         
+while True:
+    login = input('digite nome de usuario: ')
+    senha = input('digite senha: ')
 
-login = input('digite nome de usuario: ')
-senha = input('digite senha: ')
+    user = buscar_usuario(login,senha)
 
-user = buscar_usuario(login,senha)
-
-if user == True:
-    print('login com sucesso')
-    while True:
-        print('opções:')
-        print('(1) adicionar novo usuario:')
-        print('(2) - encerrar:')
-        opcao = int(input('digite sua opção: '))
-        if opcao == 1:
-            fc.addusuario()
-        elif opcao == 2:
-            break
-        else:
-            print('opção invalida')
-else:
-    print('login errado')
-        
-
-
+    if user == True:
+        print('login com sucesso')
+        while True:
+            print('opções:')
+            print('(1) adicionar novo usuario:')
+            print('(2) - fazer login')
+            print('(3) - encerrar')
+            opcao = int(input('digite sua opção: '))
+            if opcao == 1:
+                fc.addusuario()
+            elif opcao == 2:
+                break
+            elif opcao == 3:
+                break
+            else:
+                print('opção invalida')
+    else:
+        print('login errado')
     
+    if opcao == 3:
+        break

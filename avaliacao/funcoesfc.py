@@ -16,6 +16,3 @@ def addusuario():
         login = input('dige o usuario do contato: ')
         senha = input('digite o contacto telefonico: ')
         credenciais.write(f'{login} - {senha}\n')
-
-
-
