@@ -1,0 +1,3 @@
+lanterna , 21
+vaso , 21
+piper , 23

@@ -17,10 +17,10 @@ def buscar_usuario(login,senha):
         return False
          
 while True:
-    login = input('digite nome de usuario: ')
-    senha = input('digite senha: ')
+    v = input('digite nome de usuario: ')
+    s = input('digite senha: ')
 
-    user = buscar_usuario(login,senha)
+    user = buscar_usuario(v,s)
 
     if user == True:
         print('login com sucesso')
