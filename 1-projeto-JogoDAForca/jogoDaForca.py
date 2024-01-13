@@ -1,49 +1,59 @@
-import random
+import funcoesdeforca as fc
 
-def escolher_palavra():
-    palavras = ["python", "programacao", "computador", "jogo", "desenvolvimento"]
-    return random.choice(palavras)
 
-def exibir_palavra_oculta(palavra, letras_corretas):
-    resultado = ""
-    for letra in palavra:
-        if letra in letras_corretas:
-            resultado += letra
-        else:
-            resultado += "_"
-    return resultado
+while True:
+    fc.escolher_palavra() # chama a função que randomisa palavras 
 
-def jogar_forca():
-    palavra_secreta = escolher_palavra().lower()
-    letras_corretas = set()
-    tentativas_maximas = 6
-    tentativas = 0
+    palavra_secreta = fc.escolher_palavra() # variavel que recebe a palavra e armazena
 
-    print("Bem-vindo ao Jogo da Forca!")
-    
-    while tentativas < tentativas_maximas:
-        palavra_oculta = exibir_palavra_oculta(palavra_secreta, letras_corretas)
-        print("\nPalavra: " + palavra_oculta)
+    letras_usuario = []
+    chanches = 10 
 
-        letra = input("Digite uma letra: ").lower()
+    print('####  JOGO DA FORCA  ####')
+    while True:
+        
+        for i in palavra_secreta: # esse for ler letra por letra e verifica que se o usuario digitou uma letra corespondente e manten printado na tela 
+            if i.lower() in letras_usuario:
+                print(i, end=" ")
+            else: 
+                print('_', end=' ')
+        
+        print(f'voce tem {chanches} para adivinhar')
 
-        if letra in letras_corretas:
-            print("Você já tentou essa letra. Tente novamente.")
-            continue
 
-        if letra in palavra_secreta:
-            letras_corretas.add(letra)
-            print("Letra correta!")
-        else:
-            print("Letra incorreta. Tente novamente.")
-            tentativas += 1
+        print(f"letras usadas: {letras_usuario}")
 
-        if set(palavra_secreta) == letras_corretas:
-            print("\nParabéns! Você acertou a palavra: " + palavra_secreta)
+        letra = input("\nEscolha uma letra para adivinhar: ")
+        letras_usuario.append(letra.lower())
+
+        if letra.lower() not in palavra_secreta.lower():
+            chanches -= 1
+
+
+        ganhou = True
+        for i in palavra_secreta:
+            if i.lower() not in letras_usuario:
+                ganhou = False
+        
+        if chanches == 0 or ganhou==True:
             break
 
-        if tentativas == tentativas_maximas:
-            print("\nGame over! A palavra era: " + palavra_secreta)
+    if chanches == 0:
+        print(f"\n!!!!voce perdeu a palavra era : {palavra_secreta.upper()} !!!!\n")
+    elif ganhou == True:
+        print(f"\n!!!!PARABENS VOCE GANHOU A PALAVRA ERA : {palavra_secreta.upper()} !!!!\n")
+    while True:
+        print('DEJEJA TENTAR NOVAMENTE?\n')
+        tentativa = input("(1) -  SIM / (2) - NÃO\n")
+        if tentativa == "1":
+            break
+        elif tentativa == "2":
+            break
+        else:
+            print("invalida selecione uma alternativa valida\n")
+    if tentativa == "2":
+        break
 
-if __name__ == "__main__":
-    jogar_forca()
+    
+    
+    
